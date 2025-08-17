@@ -121,6 +121,13 @@ function generarCalendario(mes, año) {
   tbody.appendChild(tr);
   table.appendChild(tbody);
   calendario.appendChild(table);
+
+  // Actualiza el título del calendario
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  document.getElementById("calendarioTitulo").textContent = `Calendario del mes de ${meses[mes]} ${año}`;
 }
 
 function marcarBotonSeleccionado(botonId) {
