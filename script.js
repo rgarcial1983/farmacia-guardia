@@ -35,7 +35,7 @@ function mostrarFarmacias(fecha, filtroFarmaciaId = "") {
   });
 
   if (farmacias.length === 0) {
-    resultadoDiv.innerHTML = `<div class="alert alert-warning">No hay farmacias de guardia el ${dia} de ${mesNombre}.</div>`;
+    resultadoDiv.innerHTML = `<div class="alert alert-warning"><i class="bi bi-calendar-x"></i> No hay farmacias de guardia el ${dia} de ${mesNombre}.</div>`;
     return;
   }
 
@@ -43,10 +43,10 @@ function mostrarFarmacias(fecha, filtroFarmaciaId = "") {
     const card = document.createElement("div");
     card.className = "card card-result shadow-sm p-3";
     card.innerHTML = `
-      <h5 class="card-title">${f.nombre}</h5>
-      <p class="mb-1"><strong>Dirección:</strong> ${f.direccion}</p>
-      <p class="mb-1"><strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
-      <p class="text-muted">Guardia el ${dia} de ${mesNombre}</p>
+      <h5 class="card-title"><i class="bi bi-capsule"></i> ${f.nombre}</h5>
+      <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
+      <p class="mb-1"><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
+      <p class="text-muted"><i class="bi bi-calendar"></i> Guardia el ${dia} de ${mesNombre}</p>
     `;
     resultadoDiv.appendChild(card);
   });
