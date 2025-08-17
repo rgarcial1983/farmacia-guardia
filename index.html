@@ -23,7 +23,11 @@
         </div>
         <div class="col-md-4">
           <label for="fechaInput" class="form-label">Seleccionar fecha</label>
-          <input type="date" id="fechaInput" class="form-control">
+          <div class="input-group">
+            <input type="date" id="fechaInput" class="form-control">
+            <button class="btn btn-outline-secondary" type="button" id="mananaBtn">Mañana</button>
+            <button class="btn btn-outline-secondary" type="button" id="pasadoBtn">Pasado</button>
+          </div>
         </div>
         <div class="col-md-4 d-flex align-items-end">
           <button class="btn btn-primary w-100" id="buscarBtn">Buscar</button>

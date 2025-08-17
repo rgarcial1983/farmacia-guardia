@@ -53,16 +53,15 @@ function mostrarFarmacias(fecha, filtroFarmaciaId = "") {
 }
 
 // Generar calendario del mes
-function generarCalendario(mes, año, farmaciasGuardia) {
+function generarCalendario(mes, año) {
   const calendario = document.getElementById("calendario");
   calendario.innerHTML = "";
 
-  // Nombres de los días empezando por lunes
   const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
   const table = document.createElement("table");
   table.className = "table table-bordered text-center";
 
-  // Cabecera de los días
+  // Cabecera
   const thead = document.createElement("thead");
   const trHead = document.createElement("tr");
   diasSemana.forEach(dia => {
@@ -75,10 +74,12 @@ function generarCalendario(mes, año, farmaciasGuardia) {
 
   // Días del mes
   const primerDia = new Date(año, mes, 1);
-  let diaSemana = primerDia.getDay(); // 0=Dom, 1=Lun, ...
-  diaSemana = diaSemana === 0 ? 6 : diaSemana - 1; // Ajustar para que lunes sea 0
+  let diaSemana = primerDia.getDay();
+  diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
 
   const diasMes = new Date(año, mes + 1, 0).getDate();
+  const mesNombre = primerDia.toLocaleString("es-ES", { month: "long" }).toLowerCase();
+
   const tbody = document.createElement("tbody");
   let tr = document.createElement("tr");
 
@@ -99,14 +100,22 @@ function generarCalendario(mes, año, farmaciasGuardia) {
     card.className = "day card border-0 m-1";
     card.style.minHeight = "90px";
 
-    // Mostrar farmacia de guardia si existe
-    const fechaStr = `${año}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
-    const farmacia = farmaciasGuardia[fechaStr];
+    // Buscar farmacia de guardia para este día
+    let farmaciaGuardia = null;
+    if (farmaciasData.farmacias) {
+      for (const f of farmaciasData.farmacias) {
+        if (f.diasGuardia.some(dg => dg.mes.toLowerCase() === mesNombre && dg.dias.includes(dia))) {
+          farmaciaGuardia = f;
+          break;
+        }
+      }
+    }
+
     card.innerHTML = `
       <div class="card-body p-2">
         <div class="fw-bold">${dia}</div>
-        ${farmacia ? `<div class="small text-success">${farmacia.nombre}</div>
-        <div class="small text-muted">${farmacia.direccion}</div>` : `<div class="small text-muted">Sin datos</div>`}
+        ${farmaciaGuardia ? `<div class="small text-success">${farmaciaGuardia.nombre}</div>
+        <div class="small text-muted">${farmaciaGuardia.direccion}</div>` : `<div class="small text-muted">Sin datos</div>`}
       </div>
     `;
     td.appendChild(card);
