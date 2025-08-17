@@ -53,49 +53,85 @@ function mostrarFarmacias(fecha, filtroFarmaciaId = "") {
 }
 
 // Generar calendario del mes
-function generarCalendario(mes, anio) {
+function generarCalendario(mes, año, farmaciasGuardia) {
   const calendario = document.getElementById("calendario");
   calendario.innerHTML = "";
 
-  const primerDia = new Date(anio, mes, 1).getDay();
-  const diasEnMes = new Date(anio, mes + 1, 0).getDate();
+  // Nombres de los días empezando por lunes
+  const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+  const table = document.createElement("table");
+  table.className = "table table-bordered text-center";
 
-  const offset = primerDia === 0 ? 6 : primerDia - 1;
+  // Cabecera de los días
+  const thead = document.createElement("thead");
+  const trHead = document.createElement("tr");
+  diasSemana.forEach(dia => {
+    const th = document.createElement("th");
+    th.textContent = dia;
+    trHead.appendChild(th);
+  });
+  thead.appendChild(trHead);
+  table.appendChild(thead);
 
-  for (let i = 0; i < offset; i++) {
-    calendario.innerHTML += `<div></div>`;
+  // Días del mes
+  const primerDia = new Date(año, mes, 1);
+  let diaSemana = primerDia.getDay(); // 0=Dom, 1=Lun, ...
+  diaSemana = diaSemana === 0 ? 6 : diaSemana - 1; // Ajustar para que lunes sea 0
+
+  const diasMes = new Date(año, mes + 1, 0).getDate();
+  const tbody = document.createElement("tbody");
+  let tr = document.createElement("tr");
+
+  // Espacios vacíos antes del primer día
+  for (let i = 0; i < diaSemana; i++) {
+    tr.appendChild(document.createElement("td"));
   }
 
-  for (let dia = 1; dia <= diasEnMes; dia++) {
-    const fecha = new Date(anio, mes, dia);
-    const mesNombre = fecha.toLocaleString("es-ES", { month: "long" }).toLowerCase();
+  for (let dia = 1; dia <= diasMes; dia++) {
+    if ((diaSemana + dia - 1) % 7 === 0 && dia !== 1) {
+      tbody.appendChild(tr);
+      tr = document.createElement("tr");
+    }
 
-    const guardias = farmaciasData.farmacias.filter(f =>
-      f.diasGuardia.some(d => d.mes === mesNombre && d.dias.includes(dia))
-    );
+    const td = document.createElement("td");
+    td.className = "p-0";
+    const card = document.createElement("div");
+    card.className = "day card border-0 m-1";
+    card.style.minHeight = "90px";
 
-    let guardiasHtml = "";
-    guardias.forEach(f => {
-      guardiasHtml += `<span>${f.nombre}</span>`;
-    });
-
-    calendario.innerHTML += `
-      <div class="day">
-        <div class="day-number">${dia}</div>
-        <div class="guardias">${guardiasHtml}</div>
+    // Mostrar farmacia de guardia si existe
+    const fechaStr = `${año}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
+    const farmacia = farmaciasGuardia[fechaStr];
+    card.innerHTML = `
+      <div class="card-body p-2">
+        <div class="fw-bold">${dia}</div>
+        ${farmacia ? `<div class="small text-success">${farmacia.nombre}</div>
+        <div class="small text-muted">${farmacia.direccion}</div>` : `<div class="small text-muted">Sin datos</div>`}
       </div>
     `;
+    td.appendChild(card);
+    tr.appendChild(td);
   }
+
+  // Espacios vacíos al final
+  while (tr.children.length < 7) {
+    tr.appendChild(document.createElement("td"));
+  }
+  tbody.appendChild(tr);
+  table.appendChild(tbody);
+  calendario.appendChild(table);
 }
 
+// Ejemplo de uso (debes adaptar farmaciasGuardia a tu JSON real)
 document.addEventListener("DOMContentLoaded", () => {
-  const meses = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-  ];
   const hoy = new Date();
-  const mesActual = meses[hoy.getMonth()];
-  document.getElementById("calendarioTitulo").textContent = `Calendario del mes de ${mesActual}`;
+  const mes = hoy.getMonth();
+  const año = hoy.getFullYear();
+
+  // Simulación de datos: { "2025-08-01": {nombre: "...", direccion: "..."}, ... }
+  const farmaciasGuardia = {}; // Carga aquí tu JSON real
+
+  generarCalendario(mes, año, farmaciasGuardia);
 });
 
 document.addEventListener("DOMContentLoaded", cargarDatos);

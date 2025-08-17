@@ -22,6 +22,12 @@ body {
   border-radius: 6px;
   font-size: 0.9rem;
   position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.day:hover {
+  box-shadow: 0 0 10px #0d6efd33;
+  background: #e9f5ff;
 }
 
 .day-number {
