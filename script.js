@@ -4,15 +4,6 @@ async function cargarDatos() {
   const response = await fetch("farmaciasGuardia.json");
   farmaciasData = await response.json();
 
-  // Rellenar select de farmacias
-  const select = document.getElementById("farmaciaSelect");
-  farmaciasData.farmacias.forEach(f => {
-    const option = document.createElement("option");
-    option.value = f.id;
-    option.textContent = f.nombre;
-    select.appendChild(option);
-  });
-
   // Mostrar resultados
   const hoy = new Date();
   mostrarFarmacias(hoy);
@@ -129,6 +120,14 @@ function generarCalendario(mes, año) {
   calendario.appendChild(table);
 }
 
+function marcarBotonSeleccionado(botonId) {
+  document.getElementById("mananaBtn").classList.remove("active");
+  document.getElementById("pasadoBtn").classList.remove("active");
+  if (botonId) {
+    document.getElementById(botonId).classList.add("active");
+  }
+}
+
 // Ejemplo de uso (debes adaptar farmaciasGuardia a tu JSON real)
 document.addEventListener("DOMContentLoaded", () => {
   const hoy = new Date();
@@ -144,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", cargarDatos);
 document.getElementById("buscarBtn").addEventListener("click", () => {
   const fechaInput = document.getElementById("fechaInput").value;
+  marcarBotonSeleccionado(); // Quita selección de botones
   if (fechaInput) {
     const fecha = new Date(fechaInput);
     mostrarFarmacias(fecha);
@@ -161,6 +161,7 @@ document.getElementById("mananaBtn").addEventListener("click", () => {
   document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
   mostrarFarmacias(hoy);
   generarCalendario(hoy.getMonth(), hoy.getFullYear());
+  marcarBotonSeleccionado("mananaBtn");
 });
 
 document.getElementById("pasadoBtn").addEventListener("click", () => {
@@ -169,4 +170,9 @@ document.getElementById("pasadoBtn").addEventListener("click", () => {
   document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
   mostrarFarmacias(hoy);
   generarCalendario(hoy.getMonth(), hoy.getFullYear());
+  marcarBotonSeleccionado("pasadoBtn");
+});
+
+document.getElementById("fechaInput").addEventListener("input", () => {
+  marcarBotonSeleccionado(); // Quita selección de botones al cambiar fecha manualmente
 });
