@@ -88,6 +88,16 @@ function generarCalendario(mes, anio) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  const hoy = new Date();
+  const mesActual = meses[hoy.getMonth()];
+  document.getElementById("calendarioTitulo").textContent = `Calendario del mes de ${mesActual}`;
+});
+
 document.addEventListener("DOMContentLoaded", cargarDatos);
 document.getElementById("buscarBtn").addEventListener("click", () => {
   const fechaInput = document.getElementById("fechaInput").value;

@@ -1,4 +1,4 @@
-# 📍 Farmacias de Guardia
+# 📍 Farmacias de Guardia en Úbeda 2025
 
 Este proyecto es una página web estática que permite consultar qué farmacia está de guardia en una fecha determinada.  
 Los datos se encuentran en un archivo **JSON** y la interfaz está construida con **HTML, Bootstrap y JavaScript**.
@@ -33,7 +33,7 @@ farmacias-guardia/
 2. Ve a la configuración del repositorio (**Settings > Pages**).
 3. En **Source**, selecciona la rama `main` y la carpeta `/root`.
 4. Guarda y espera unos segundos: tu web estará disponible en  
-   `https://tu-usuario.github.io/farmacias-guardia/`
+   `https://rgarcial1983.github.io/farmacia-guardia/`
 
 ---
 
