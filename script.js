@@ -19,20 +19,18 @@ async function cargarDatos() {
   generarCalendario(hoy.getMonth(), hoy.getFullYear());
 }
 
-function mostrarFarmacias(fecha, filtroFarmaciaId = "") {
+function mostrarFarmacias(fecha) {
   const dia = fecha.getDate();
   const mesNombre = fecha.toLocaleString("es-ES", { month: "long" }).toLowerCase();
 
   const resultadoDiv = document.getElementById("resultado");
   resultadoDiv.innerHTML = "";
 
-  const farmacias = farmaciasData.farmacias.filter(f => {
-    if (filtroFarmaciaId && f.id != filtroFarmaciaId) return false;
-
-    return f.diasGuardia.some(d => 
+  const farmacias = farmaciasData.farmacias.filter(f =>
+    f.diasGuardia.some(d => 
       d.mes.toLowerCase() === mesNombre && d.dias.includes(dia)
-    );
-  });
+    )
+  );
 
   if (farmacias.length === 0) {
     resultadoDiv.innerHTML = `<div class="alert alert-warning"><i class="bi bi-calendar-x"></i> No hay farmacias de guardia el ${dia} de ${mesNombre}.</div>`;
@@ -146,15 +144,29 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", cargarDatos);
 document.getElementById("buscarBtn").addEventListener("click", () => {
   const fechaInput = document.getElementById("fechaInput").value;
-  const farmaciaId = document.getElementById("farmaciaSelect").value;
-
   if (fechaInput) {
     const fecha = new Date(fechaInput);
-    mostrarFarmacias(fecha, farmaciaId);
+    mostrarFarmacias(fecha);
     generarCalendario(fecha.getMonth(), fecha.getFullYear());
   } else {
     const hoy = new Date();
-    mostrarFarmacias(hoy, farmaciaId);
+    mostrarFarmacias(hoy);
     generarCalendario(hoy.getMonth(), hoy.getFullYear());
   }
+});
+
+document.getElementById("mananaBtn").addEventListener("click", () => {
+  const hoy = new Date();
+  hoy.setDate(hoy.getDate() + 1);
+  document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
+  mostrarFarmacias(hoy);
+  generarCalendario(hoy.getMonth(), hoy.getFullYear());
+});
+
+document.getElementById("pasadoBtn").addEventListener("click", () => {
+  const hoy = new Date();
+  hoy.setDate(hoy.getDate() + 2);
+  document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
+  mostrarFarmacias(hoy);
+  generarCalendario(hoy.getMonth(), hoy.getFullYear());
 });
