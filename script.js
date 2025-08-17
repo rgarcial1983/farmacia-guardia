@@ -13,6 +13,9 @@ async function cargarDatos() {
 function mostrarFarmacias(fecha) {
   const dia = fecha.getDate();
   const mesNombre = fecha.toLocaleString("es-ES", { month: "long" }).toLowerCase();
+  const año = fecha.getFullYear();
+  const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+  const diaSemana = diasSemana[fecha.getDay()];
 
   const resultadoDiv = document.getElementById("resultado");
   resultadoDiv.innerHTML = "";
@@ -24,7 +27,7 @@ function mostrarFarmacias(fecha) {
   );
 
   if (farmacias.length === 0) {
-    resultadoDiv.innerHTML = `<div class="alert alert-warning"><i class="bi bi-calendar-x"></i> No hay farmacias de guardia el ${dia} de ${mesNombre}.</div>`;
+    resultadoDiv.innerHTML = `<div class="alert alert-warning"><i class="bi bi-calendar-x"></i> No hay farmacias de guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}.</div>`;
     return;
   }
 
@@ -35,7 +38,7 @@ function mostrarFarmacias(fecha) {
       <h5 class="card-title"><i class="bi bi-capsule"></i> ${f.nombre}</h5>
       <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
       <p class="mb-1"><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
-      <p class="text-muted"><i class="bi bi-calendar"></i> Guardia el ${dia} de ${mesNombre}</p>
+      <p class="text-muted"><i class="bi bi-calendar"></i> Guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}</p>
     `;
     resultadoDiv.appendChild(card);
   });
@@ -121,6 +124,7 @@ function generarCalendario(mes, año) {
 }
 
 function marcarBotonSeleccionado(botonId) {
+  document.getElementById("hoyBtn").classList.remove("active");
   document.getElementById("mananaBtn").classList.remove("active");
   document.getElementById("pasadoBtn").classList.remove("active");
   if (botonId) {
@@ -171,6 +175,14 @@ document.getElementById("pasadoBtn").addEventListener("click", () => {
   mostrarFarmacias(hoy);
   generarCalendario(hoy.getMonth(), hoy.getFullYear());
   marcarBotonSeleccionado("pasadoBtn");
+});
+
+document.getElementById("hoyBtn").addEventListener("click", () => {
+  const hoy = new Date();
+  document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
+  mostrarFarmacias(hoy);
+  generarCalendario(hoy.getMonth(), hoy.getFullYear());
+  marcarBotonSeleccionado("hoyBtn");
 });
 
 document.getElementById("fechaInput").addEventListener("input", () => {
