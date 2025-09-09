@@ -250,7 +250,7 @@
         {"mes": "septiembre", "dias": [9, 21]},
         {"mes": "octubre", "dias": [3, 15, 27]},
         {"mes": "noviembre", "dias": [6, 20]},
-        {"mes": "diciembre": "dias": [14, 26]}
+        {"mes": "diciembre", "dias": [14, 26]}
       ]
     }
   ]
