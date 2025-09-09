@@ -37,6 +37,11 @@ function mostrarFarmacias(fecha) {
     card.innerHTML = `
       <h5 class="card-title"><i class="bi bi-capsule"></i> ${f.nombre}</h5>
       <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
+      <p class="mb-1">
+        <a href="${f.localizacion}" target="_blank" class="text-success text-decoration-none">
+          <i class="bi bi-geo-alt-fill"></i> Ver en Google Maps
+        </a>
+      </p>
       <p class="mb-1"><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
       <p class="text-muted"><i class="bi bi-calendar"></i> Guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}</p>
     `;
