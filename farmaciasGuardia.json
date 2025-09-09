@@ -6,6 +6,7 @@
       "nombre": "LIÑAN MONEDERO",
       "direccion": "C/AV. RAMÓN Y CAJAL N°22",
       "telefono": "953750672",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Liñan+Monedero,+C/AV.+Ramón+y+Cajal+Nº22,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [1, 13, 25]},
         {"mes": "febrero", "dias": [6, 18]},
@@ -26,6 +27,7 @@
       "nombre": "ALFONSA MESA Y DOS MÁS",
       "direccion": "C/ EXPLANADA N°1",
       "telefono": "953750904",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Alfonsa+Mesa,+C/Explada+Nº1,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [2, 14, 26]},
         {"mes": "febrero", "dias": [7, 19]},
@@ -46,6 +48,7 @@
       "nombre": "FRANCISCA CRUZ RODRIGUEZ",
       "direccion": "AV. LIBERTAD N°33",
       "telefono": "953751915",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Francisca+Cruz+Rodriguez,+Av.+Libertad+Nº33,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [3, 15, 27]},
         {"mes": "febrero", "dias": [8, 20]},
@@ -66,6 +69,7 @@
       "nombre": "IRENE CRUZ E IRENE PEÑAS",
       "direccion": "C/BLAS INFANTE N°9",
       "telefono": "953751373",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Irene+Cruz+e+Irene+Peñas,+C/Blas+Infante+Nº9,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [4, 16, 28]},
         {"mes": "febrero", "dias": [9, 21]},
@@ -86,6 +90,7 @@
       "nombre": "ALFONSO OBRA SALIDO",
       "direccion": "C/GAVELLAR Nº 9",
       "telefono": "953756022",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Alfonso+Obra+Salido,+C/Gavellar+Nº9,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [5, 17, 29]},
         {"mes": "febrero", "dias": [10, 22]},
@@ -106,6 +111,7 @@
       "nombre": "MARIANA MARTINEZ DE DIOS",
       "direccion": "C/ HUELVA N°5",
       "telefono": "953750260",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Mariana+Martinez+de+Dios,+C/Huelva+Nº5,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [6, 18, 30]},
         {"mes": "febrero", "dias": [11, 23]},
@@ -126,6 +132,7 @@
       "nombre": "TALLON MONTORO",
       "direccion": "C/CORREDERA N°26",
       "telefono": "953750338",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Tallon+Montoro,+C/Corredera+Nº26,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [7, 19, 31]},
         {"mes": "febrero", "dias": [12, 24]},
@@ -146,6 +153,7 @@
       "nombre": "JOSE MIGUEL ALMAGRO",
       "direccion": "C/ PLAZA ANDALUCIA N°6",
       "telefono": "953750057",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Jose+Miguel+Almagro,+C/Plaza+Andalucia+Nº6,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [8, 20]},
         {"mes": "febrero", "dias": [1, 13, 25]},
@@ -166,6 +174,7 @@
       "nombre": "NURIA LASO Y PILAR VILCHEZ",
       "direccion": "C/REAL N°44",
       "telefono": "953750390",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Nuria+Laso+y+Pilar+Vilchez,+C/Real+Nº44,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [9, 21]},
         {"mes": "febrero", "dias": [2, 14, 26]},
@@ -186,6 +195,7 @@
       "nombre": "JOAQUIN TUÑON ESPINOSA",
       "direccion": "C/RASTRO N°1",
       "telefono": "953750151",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Joaquin+Tuñon+Espinosa,+C/Rastro+Nº1,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [10, 22]},
         {"mes": "febrero", "dias": [3, 15, 27]},
@@ -206,6 +216,7 @@
       "nombre": "Mª BELEN CORRAL RUIZ",
       "direccion": "C/OBISPO COBOS N°47",
       "telefono": "953750574",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Mª+Belen+Corral+Ruiz,+C/Obispo+Cobos+Nº47,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [11, 23]},
         {"mes": "febrero", "dias": [4, 16, 28]},
@@ -226,6 +237,7 @@
       "nombre": "INMACULADA BARAS DE LA TORRE",
       "direccion": "C/TRINIDAD N°43",
       "telefono": "953752323",
+      "localizacion": "https://www.google.com/maps/search/?api=1&query=Farmacia+Inmaculada+Baras+de+la+Torre,+C/Trinidad+Nº43,+23400+Úbeda",
       "diasGuardia": [
         {"mes": "enero", "dias": [12, 24]},
         {"mes": "febrero", "dias": [5, 17]},
@@ -238,7 +250,7 @@
         {"mes": "septiembre", "dias": [9, 21]},
         {"mes": "octubre", "dias": [3, 15, 27]},
         {"mes": "noviembre", "dias": [6, 20]},
-        {"mes": "diciembre", "dias": [14, 26]}
+        {"mes": "diciembre": "dias": [14, 26]}
       ]
     }
   ]
