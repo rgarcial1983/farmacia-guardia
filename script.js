@@ -4,7 +4,6 @@ async function cargarDatos() {
   const response = await fetch("farmaciasGuardia.json");
   farmaciasData = await response.json();
 
-  // Mostrar resultados
   const hoy = new Date();
   mostrarFarmacias(hoy);
   generarCalendario(hoy.getMonth(), hoy.getFullYear());
@@ -27,38 +26,41 @@ function mostrarFarmacias(fecha) {
   );
 
   if (farmacias.length === 0) {
-    resultadoDiv.innerHTML = `<div class="alert alert-warning"><i class="bi bi-calendar-x"></i> No hay farmacias de guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}.</div>`;
+    resultadoDiv.innerHTML = `
+      <div class="alert">
+        <i class="fas fa-exclamation-triangle"></i> No hay farmacias de guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}.
+      </div>`;
     return;
   }
 
   farmacias.forEach(f => {
     const card = document.createElement("div");
-    card.className = "card card-result shadow-sm p-3";
+    card.className = "result-card";
     card.innerHTML = `
-      <h5 class="card-title"><i class="bi bi-capsule"></i> ${f.nombre}</h5>
-      <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
-      <p class="mb-1">
-        <a href="${f.localizacion}" target="_blank" class="text-success text-decoration-none">
-          <i class="bi bi-geo-alt-fill"></i> Ver en Google Maps
+      <h5><i class="fas fa-pills"></i> ${f.nombre}</h5>
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
+      <p>
+        <a href="${f.localizacion}" target="_blank">
+          <i class="fas fa-map"></i> Ver ubicación en Google Maps
         </a>
       </p>
-      <p class="mb-1"><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
-      <p class="text-muted"><i class="bi bi-calendar"></i> Guardia el ${diaSemana} ${dia} de ${mesNombre} ${año}</p>
+      <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
+      <div class="date-badge">
+        <i class="fas fa-check-circle"></i> ${diaSemana} ${dia} de ${mesNombre} ${año}
+      </div>
     `;
     resultadoDiv.appendChild(card);
   });
 }
 
-// Generar calendario del mes
 function generarCalendario(mes, año) {
   const calendario = document.getElementById("calendario");
   calendario.innerHTML = "";
 
   const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
   const table = document.createElement("table");
-  table.className = "table table-bordered text-center";
+  table.className = "calendar-table";
 
-  // Cabecera
   const thead = document.createElement("thead");
   const trHead = document.createElement("tr");
   diasSemana.forEach(dia => {
@@ -69,7 +71,6 @@ function generarCalendario(mes, año) {
   thead.appendChild(trHead);
   table.appendChild(thead);
 
-  // Días del mes
   const primerDia = new Date(año, mes, 1);
   let diaSemana = primerDia.getDay();
   diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
@@ -80,7 +81,6 @@ function generarCalendario(mes, año) {
   const tbody = document.createElement("tbody");
   let tr = document.createElement("tr");
 
-  // Espacios vacíos antes del primer día
   for (let i = 0; i < diaSemana; i++) {
     tr.appendChild(document.createElement("td"));
   }
@@ -92,12 +92,9 @@ function generarCalendario(mes, año) {
     }
 
     const td = document.createElement("td");
-    td.className = "p-0";
-    const card = document.createElement("div");
-    card.className = "day card border-0 m-1";
-    card.style.minHeight = "90px";
+    const dayCell = document.createElement("div");
+    dayCell.className = "day-cell";
 
-    // Buscar farmacia de guardia para este día
     let farmaciaGuardia = null;
     if (farmaciasData.farmacias) {
       for (const f of farmaciasData.farmacias) {
@@ -108,18 +105,17 @@ function generarCalendario(mes, año) {
       }
     }
 
-    card.innerHTML = `
-      <div class="card-body p-2">
-        <div class="fw-bold">${dia}</div>
-        ${farmaciaGuardia ? `<div class="small text-success">${farmaciaGuardia.nombre}</div>
-        <div class="small text-muted">${farmaciaGuardia.direccion}</div>` : `<div class="small text-muted">Sin datos</div>`}
-      </div>
+    dayCell.innerHTML = `
+      <div class="day-number">${dia}</div>
+      ${farmaciaGuardia ? 
+        `<div class="pharmacy-name">${farmaciaGuardia.nombre}</div>
+          <div class="pharmacy-address">${farmaciaGuardia.direccion}</div>` : 
+        `<div class="no-data">Sin guardia</div>`}
     `;
-    td.appendChild(card);
+    td.appendChild(dayCell);
     tr.appendChild(td);
   }
 
-  // Espacios vacíos al final
   while (tr.children.length < 7) {
     tr.appendChild(document.createElement("td"));
   }
@@ -127,12 +123,12 @@ function generarCalendario(mes, año) {
   table.appendChild(tbody);
   calendario.appendChild(table);
 
-  // Actualiza el título del calendario
   const meses = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
-  document.getElementById("calendarioTitulo").textContent = `Calendario del mes de ${meses[mes]} ${año}`;
+  document.getElementById("calendarioTitulo").innerHTML = 
+    `<i class="fas fa-calendar-alt"></i> ${meses[mes]} ${año}`;
 }
 
 function marcarBotonSeleccionado(botonId) {
@@ -144,24 +140,13 @@ function marcarBotonSeleccionado(botonId) {
   }
 }
 
-// Ejemplo de uso (debes adaptar farmaciasGuardia a tu JSON real)
-document.addEventListener("DOMContentLoaded", () => {
-  const hoy = new Date();
-  const mes = hoy.getMonth();
-  const año = hoy.getFullYear();
-
-  // Simulación de datos: { "2025-08-01": {nombre: "...", direccion: "..."}, ... }
-  const farmaciasGuardia = {}; // Carga aquí tu JSON real
-
-  generarCalendario(mes, año, farmaciasGuardia);
-});
-
 document.addEventListener("DOMContentLoaded", cargarDatos);
+
 document.getElementById("buscarBtn").addEventListener("click", () => {
   const fechaInput = document.getElementById("fechaInput").value;
-  marcarBotonSeleccionado(); // Quita selección de botones
+  marcarBotonSeleccionado();
   if (fechaInput) {
-    const fecha = new Date(fechaInput);
+    const fecha = new Date(fechaInput + 'T00:00:00');
     mostrarFarmacias(fecha);
     generarCalendario(fecha.getMonth(), fecha.getFullYear());
   } else {
@@ -198,5 +183,5 @@ document.getElementById("hoyBtn").addEventListener("click", () => {
 });
 
 document.getElementById("fechaInput").addEventListener("input", () => {
-  marcarBotonSeleccionado(); // Quita selección de botones al cambiar fecha manualmente
+  marcarBotonSeleccionado();
 });

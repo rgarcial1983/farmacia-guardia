@@ -102,7 +102,7 @@
         {"mes": "agosto", "dias": [9, 21]},
         {"mes": "septiembre", "dias": [2, 14, 26]},
         {"mes": "octubre", "dias": [8, 20]},
-        {"mes": "noviembre", "dias": [13, 25]},
+        {"mes": "noviembre", "dias": [1, 13, 25]},
         {"mes": "diciembre", "dias": [7, 19, 31]}
       ]
     },
@@ -123,7 +123,7 @@
         {"mes": "agosto", "dias": [10, 22]},
         {"mes": "septiembre", "dias": [3, 15, 27]},
         {"mes": "octubre", "dias": [9, 21]},
-        {"mes": "noviembre", "dias": [14, 26]},
+        {"mes": "noviembre", "dias": [2, 14, 26]},
         {"mes": "diciembre", "dias": [8, 20]}
       ]
     },
@@ -144,7 +144,7 @@
         {"mes": "agosto", "dias": [11, 23]},
         {"mes": "septiembre", "dias": [4, 16, 28]},
         {"mes": "octubre", "dias": [10, 22]},
-        {"mes": "noviembre", "dias": [1, 15, 27]},
+        {"mes": "noviembre", "dias": [3, 15, 27]},
         {"mes": "diciembre", "dias": [9, 21]}
       ]
     },
@@ -165,7 +165,7 @@
         {"mes": "agosto", "dias": [12, 24]},
         {"mes": "septiembre", "dias": [5, 17, 29]},
         {"mes": "octubre", "dias": [11, 23]},
-        {"mes": "noviembre", "dias": [2, 16, 28]},
+        {"mes": "noviembre", "dias": [4, 16, 28]},
         {"mes": "diciembre", "dias": [10, 22]}
       ]
     },
@@ -186,7 +186,7 @@
         {"mes": "agosto", "dias": [1, 13, 25]},
         {"mes": "septiembre", "dias": [6, 18, 30]},
         {"mes": "octubre", "dias": [12, 24]},
-        {"mes": "noviembre", "dias": [3, 17, 29]},
+        {"mes": "noviembre", "dias": [5, 17, 29]},
         {"mes": "diciembre", "dias": [11, 23]}
       ]
     },
@@ -207,7 +207,7 @@
         {"mes": "agosto", "dias": [2, 14, 26]},
         {"mes": "septiembre", "dias": [7, 19]},
         {"mes": "octubre", "dias": [1, 13, 25]},
-        {"mes": "noviembre", "dias": [4, 18, 30]},
+        {"mes": "noviembre", "dias": [6, 18, 30]},
         {"mes": "diciembre", "dias": [12, 24]}
       ]
     },
@@ -228,8 +228,8 @@
         {"mes": "agosto", "dias": [3, 15, 27]},
         {"mes": "septiembre", "dias": [8, 20]},
         {"mes": "octubre", "dias": [2, 14, 26]},
-        {"mes": "noviembre", "dias": [5, 19]},
-        {"mes": "diciembre", "dias": [13, 25]}
+        {"mes": "noviembre", "dias": [7, 19]},
+        {"mes": "diciembre", "dias": [1, 13, 25]}
       ]
     },
     {
@@ -249,8 +249,8 @@
         {"mes": "agosto", "dias": [4, 16, 28]},
         {"mes": "septiembre", "dias": [9, 21]},
         {"mes": "octubre", "dias": [3, 15, 27]},
-        {"mes": "noviembre", "dias": [6, 20]},
-        {"mes": "diciembre", "dias": [14, 26]}
+        {"mes": "noviembre", "dias": [8, 20]},
+        {"mes": "diciembre", "dias": [2, 14, 26]}
       ]
     }
   ]
