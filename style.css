@@ -33,23 +33,16 @@
     .header-section {
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
       color: white;
-      padding: 2.5rem 20px;
+      padding: 0.5rem 20px;
       border-radius: 0 0 30px 30px;
       box-shadow: 0 8px 30px rgba(0, 168, 107, 0.2);
       margin-bottom: 2rem;
     }
 
     .header-section h1 {
-      font-size: 2.5rem;
+      font-size: 2.0rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .header-section .subtitle {
-      font-size: 1.2rem;
-      opacity: 0.95;
       text-align: center;
     }
 
@@ -65,14 +58,14 @@
       background: white;
       color: var(--primary-color);
       border: 3px solid white;
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       font-size: 1.1rem;
       font-weight: 600;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
     }
 
     .pdf-download-btn:hover {
@@ -103,11 +96,11 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .day-btn {
-      padding: 1rem 2.5rem;
+      padding: 1rem 2rem;
       font-size: 1.2rem;
       font-weight: 600;
       border-radius: 50px;
@@ -278,7 +271,7 @@
 
     /* Calendario */
     .calendar-section {
-      margin-top: 3rem;
+      margin-top: 2rem;
       background: white;
       border-radius: 25px;
       padding: 2rem;

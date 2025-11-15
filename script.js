@@ -185,3 +185,6 @@ document.getElementById("hoyBtn").addEventListener("click", () => {
 document.getElementById("fechaInput").addEventListener("input", () => {
   marcarBotonSeleccionado();
 });
+
+// Actualizar año dinámicamente
+document.getElementById("currentYear").textContent = new Date().getFullYear();
