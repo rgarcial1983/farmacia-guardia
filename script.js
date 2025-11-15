@@ -41,7 +41,7 @@ function mostrarFarmacias(fecha) {
       <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> ${f.direccion}</p>
       <p>
         <a href="${f.localizacion}" target="_blank">
-          <i class="fas fa-map"></i> Ver ubicación en Google Maps
+          <i class="fa-solid fa-map-location-dot"></i> Ver ubicación en Google Maps
         </a>
       </p>
       <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <a href="tel:${f.telefono}">${f.telefono}</a></p>
