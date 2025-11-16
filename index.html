@@ -81,5 +81,20 @@
 
   </div>
   <script src="js/script.js"></script>
+  <script>
+    // Comprueba si el navegador soporta Service Workers
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Intenta registrar el archivo sw.js
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service Worker registrado con éxito:', registration.scope);
+          })
+          .catch(err => {
+            console.error('Error al registrar el Service Worker:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
