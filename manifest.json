@@ -1,0 +1,22 @@
+{
+  "name": "Farmacia-guardia",
+  "short_name": "NombreCorto",
+  "description": "Web para encontrar la farmacia de guardia disponible en Úbeda.",
+  "lang": "es-ES",
+  "start_url": "/farmacia-guardia/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00a86b",
+  "icons": [
+    {
+      "src": "/farmacia-guardia/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/farmacia-guardia/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
