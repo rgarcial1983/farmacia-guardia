@@ -7,7 +7,7 @@ const urlsToCache = [
   '.',
   'index.html',
   'css/style.css',
-  'js/scripts.js',
+  'js/script.js',
   'manifest.json',
   'sw.js',
   'farmaciasGuardia.json',
