@@ -4,15 +4,15 @@ const CACHE_NAME = 'farmacias-guardia-cache-v1';
 // Lista los archivos que quieres guardar en caché
 // Añade aquí todos tus archivos (HTML, CSS, JS, imágenes clave)
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/scripts.js',
-  '/manifest.json',
-  '/farmaciasGuardia.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/ficheros/GUARDIAS_UBEDA_2025.pdf'
+  '.',
+  'index.html',
+  'css/style.css',
+  'js/scripts.js',
+  'manifest.json',
+  'farmaciasGuardia.json',
+  'icons/icon-192x192.png',
+  'icons/icon-512x512.png',
+  'ficheros/GUARDIAS_UBEDA_2025.pdf'
 ];
 
 // Evento "install": Se dispara cuando el Service Worker se instala
