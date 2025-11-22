@@ -188,3 +188,12 @@ document.getElementById("fechaInput").addEventListener("input", () => {
 
 // Actualizar año dinámicamente
 document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+// Configuración de PayPal
+const PAYPAL_EMAIL = 'rafa.garcia.leon@gmail.com';
+const PAYPAL_DONATE_URL = `https://www.paypal.com/donate/?hosted_button_id=TU_BUTTON_ID`;
+
+// Aplicar URL al botón de donación
+if (document.getElementById('donationBtn')) {
+  document.getElementById('donationBtn').href = PAYPAL_DONATE_URL;
+}

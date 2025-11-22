@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <link rel="manifest" href="manifest.json">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#00A86B">
   <link rel="icon" href="favicon.ico" type="image/png">
-  <title>Farmacias de Guardia</title>  
+  <title>Farmacias de Guardia</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/style.css">
   <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 </head>
+
 <body>
 
   <!-- Header -->
@@ -21,8 +23,8 @@
       </h1>
       <p class="subtitle">Úbeda - Siempre a tu servicio</p>
       <div class="text-center">
-        <a href="https://rgarcial1983.github.io/farmacia-guardia/ficheros/GUARDIAS_UBEDA_2025.pdf" 
-           class="pdf-download-btn" download>
+        <a href="https://www.farmaceuticosdejaen.es/Paginas/Farmacias_Guardia.asp?idPoblacion=82"
+          class="pdf-download-btn" download>
           <i class="fas fa-file-pdf"></i> Descargar Calendario
         </a>
       </div>
@@ -43,7 +45,7 @@
           <i class="fas fa-calendar-day"></i> Pasado
         </button>
       </div>
-      
+
       <div class="date-selector">
         <label for="fechaInput">
           <i class="fas fa-calendar-alt"></i> O selecciona otra fecha:
@@ -66,14 +68,26 @@
 
     <!-- Footer -->
     <div class="filters-card" style="margin-top: 2rem; text-align: center;">
-      <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
-      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">¿Encontraste algún error?</h3>
-      <p style="color: var(--text-light); margin-bottom: 1rem;">
+      <i class="fas fa-info-circle donation-icon"></i>
+      <h3 class="donation-title">¿Encontraste algún error?</h3>
+      <p class="donation-text">
         Si los datos de alguna farmacia son incorrectos o necesitan actualización
       </p>
-      <a href="mailto:rafa.garcia.leon@gmail.com?subject=Farmacias de Guardia - Corrección de datos" 
+      <a href="mailto:rafa.garcia.leon@gmail.com?subject=Farmacias de Guardia - Corrección de datos"
         class="pdf-download-btn">
         <i class="fas fa-envelope"></i> Contáctame
+      </a>
+    </div>
+
+    <!-- Sección de Donación -->
+    <div class="donation-card">
+      <i class="fas fa-heart donation-icon"></i>
+      <h3 class="donation-title">¿Te ha sido útil?</h3>
+      <p class="donation-text">
+        Si te ha gustado esta web y quieres ayudarme, puedes invitarme a un café ☕
+      </p>
+      <a href="#" class="donation-btn" id="donationBtn">
+        <i class="fab fa-paypal"></i> Hacer una donación
       </a>
       <p class="copyright">
         © <span id="currentYear"></span> Farmacias de Guardia en Úbeda
@@ -98,4 +112,5 @@
     }
   </script>
 </body>
+
 </html>
