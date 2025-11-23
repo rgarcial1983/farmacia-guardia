@@ -132,11 +132,13 @@ function generarCalendario(mes, año) {
 }
 
 function marcarBotonSeleccionado(botonId) {
-  document.getElementById("hoyBtn").classList.remove("active");
-  document.getElementById("mananaBtn").classList.remove("active");
-  document.getElementById("pasadoBtn").classList.remove("active");
+  const hoyBtn = document.getElementById("hoyBtn");
+  const mananaBtn = document.getElementById("mananaBtn");
+  if (hoyBtn) hoyBtn.classList.remove("active");
+  if (mananaBtn) mananaBtn.classList.remove("active");
   if (botonId) {
-    document.getElementById(botonId).classList.add("active");
+    const el = document.getElementById(botonId);
+    if (el) el.classList.add("active");
   }
 }
 
@@ -165,14 +167,7 @@ document.getElementById("mananaBtn").addEventListener("click", () => {
   marcarBotonSeleccionado("mananaBtn");
 });
 
-document.getElementById("pasadoBtn").addEventListener("click", () => {
-  const hoy = new Date();
-  hoy.setDate(hoy.getDate() + 2);
-  document.getElementById("fechaInput").value = hoy.toISOString().split("T")[0];
-  mostrarFarmacias(hoy);
-  generarCalendario(hoy.getMonth(), hoy.getFullYear());
-  marcarBotonSeleccionado("pasadoBtn");
-});
+// 'Pasado' eliminado: ya no existe manejador para ese botón.
 
 document.getElementById("hoyBtn").addEventListener("click", () => {
   const hoy = new Date();
@@ -204,8 +199,8 @@ if (document.getElementById('donationBtn')) {
 // 1. Registrar el Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // Asegúrate de que el archivo service-worker.js esté en la raíz de tu proyecto
-    navigator.serviceWorker.register('./service-worker.js')
+    // Asegúrate de que el archivo sw.js esté en la raíz de tu proyecto
+    navigator.serviceWorker.register('./sw.js')
       .then(reg => console.log('Service Worker registrado correctamente:', reg))
       .catch(err => console.log('Error al registrar el Service Worker:', err));
   });
