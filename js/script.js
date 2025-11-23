@@ -190,10 +190,66 @@ document.getElementById("fechaInput").addEventListener("input", () => {
 document.getElementById("currentYear").textContent = new Date().getFullYear();
 
 // Configuración de PayPal
-const PAYPAL_EMAIL = 'rafa.garcia.leon@gmail.com';
 const PAYPAL_DONATE_URL = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=rafa.garcia.leon@gmail.com&currency_code=EUR`;
 
 // Aplicar URL al botón de donación
 if (document.getElementById('donationBtn')) {
   document.getElementById('donationBtn').href = PAYPAL_DONATE_URL;
 }
+
+/* ===========================================================
+   LÓGICA PWA (PROGRESSIVE WEB APP) - INSTALACIÓN
+   =========================================================== */
+
+// 1. Registrar el Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    // Asegúrate de que el archivo service-worker.js esté en la raíz de tu proyecto
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log('Service Worker registrado correctamente:', reg))
+      .catch(err => console.log('Error al registrar el Service Worker:', err));
+  });
+}
+
+// 2. Lógica del Botón de Instalación
+let deferredPrompt; // Variable para guardar el evento de instalación
+const installBtn = document.getElementById('btn-instalar');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // A. Prevenir que Chrome muestre el mini-banner automático antiguo
+  e.preventDefault();
+  
+  // B. Guardar el evento para dispararlo cuando el usuario pulse el botón
+  deferredPrompt = e;
+  
+  // C. Mostrar nuestro botón personalizado
+  if (installBtn) {
+    installBtn.style.display = 'block'; // Hacemos visible el botón
+    
+    // D. Añadir el evento de click
+    installBtn.addEventListener('click', () => {
+      // Ocultamos el botón porque ya le han dado click
+      installBtn.style.display = 'none';
+      
+      // Mostramos el diálogo de instalación nativo del móvil
+      deferredPrompt.prompt();
+      
+      // Esperamos a ver qué decide el usuario
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('El usuario aceptó instalar la app');
+        } else {
+          console.log('El usuario rechazó la instalación');
+          // Opcional: volver a mostrar el botón si quieres insistir
+        }
+        deferredPrompt = null;
+      });
+    });
+  }
+});
+
+// 3. Detectar si ya se instaló (para ocultar el botón definitivamente)
+window.addEventListener('appinstalled', () => {
+  console.log('La aplicación ha sido instalada con éxito');
+  if (installBtn) installBtn.style.display = 'none';
+});

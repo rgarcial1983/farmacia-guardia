@@ -1,8 +1,10 @@
 // Nombre de caché (aumenta la versión para invalidar caches antiguas)
-const CACHE_NAME = 'farmacias-guardia-cache-v2';
+const CACHE_NAME = 'farmacias-guardia-cache-v3';
 
 // Archivos que queremos cachear (assets estáticos). No cacheamos todo agresivamente.
 const urlsToCache = [
+  '/',
+  'index.html',
   'css/style.css',
   'js/script.js',
   'icons/icon-192x192.png',
