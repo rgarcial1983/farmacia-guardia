@@ -145,7 +145,7 @@
         {"mes": "septiembre", "dias": [4, 16, 28]},
         {"mes": "octubre", "dias": [10, 22]},
         {"mes": "noviembre", "dias": [3, 15, 27]},
-        {"mes": "diciembre", "dias": [9, 21]}
+        {"mes": "diciembre", "dias": [10, 21]}
       ]
     },
     {
@@ -165,8 +165,8 @@
         {"mes": "agosto", "dias": [12, 24]},
         {"mes": "septiembre", "dias": [5, 17, 29]},
         {"mes": "octubre", "dias": [11, 23]},
-        {"mes": "noviembre", "dias": [4, 16, 28]},
-        {"mes": "diciembre", "dias": [10, 22]}
+        {"mes": "noviembre", "dias": [4, 28, 30]},
+        {"mes": "diciembre", "dias": [9, 22]}
       ]
     },
     {
@@ -207,7 +207,7 @@
         {"mes": "agosto", "dias": [2, 14, 26]},
         {"mes": "septiembre", "dias": [7, 19]},
         {"mes": "octubre", "dias": [1, 13, 25]},
-        {"mes": "noviembre", "dias": [6, 18, 30]},
+        {"mes": "noviembre", "dias": [6, 16, 18]},
         {"mes": "diciembre", "dias": [12, 24]}
       ]
     },
