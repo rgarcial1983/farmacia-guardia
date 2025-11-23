@@ -191,7 +191,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
 
 // Configuración de PayPal
 const PAYPAL_EMAIL = 'rafa.garcia.leon@gmail.com';
-const PAYPAL_DONATE_URL = `https://www.paypal.com/donate/?hosted_button_id=TU_BUTTON_ID`;
+const PAYPAL_DONATE_URL = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=rafa.garcia.leon@gmail.com&currency_code=EUR`;
 
 // Aplicar URL al botón de donación
 if (document.getElementById('donationBtn')) {
